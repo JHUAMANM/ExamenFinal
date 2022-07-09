@@ -1,0 +1,34 @@
+<h1 id="TituloTransaccion">Transacciones</h1>
+
+<a class="btn btn-primary" href="/Transaccion/create?cuentaId=@ViewBag.CuentaId">Nueva Transacción</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <td>Tipo</td>
+        <th>Fecha</th>
+        <th>Descripcion</th>
+        <th>Monto</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Tipo</td>
+            <td>@item.Fecha</td>
+            <td>@item.Descripcion</td>
+            <td>@item.Monto</td>
+            
+            <td>
+                <a href="/Transaccion/delete?id=@item.Id" class="btn btn btn-danger">Eliminar</a>
+                
+            </td>
+        </tr>
+    }    
+    </tbody>
+    
+    <h1>Total: @ViewBag.Total</h1>
+    
+</table>

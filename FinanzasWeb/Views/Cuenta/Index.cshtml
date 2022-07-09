@@ -1,0 +1,39 @@
+<div class="container">
+    <h1 id="CuentaFinal">Cuentas</h1>
+    <br>
+    <a class="btn btn-primary" href="/cuenta/create">Nueva Cuenta</a>
+    <br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Categoria</th>
+             <td>Tipo de cuenta</td>
+            <th>Salda Inicial</th>
+            <th>Moneda</th>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Categoria</td>
+                <td>@item.TipoCuenta.Nombre</td>
+                <td>@item.SaldoInicial</td>
+                <td>@item.Moneda</td>
+                
+                
+                <td>
+                    <a href="/Transaccion?cuentaId=@item.Id" class="btn btn-outline-success">Transacciones</a>
+                    <a href="/cuenta/edit?id=@item.Id" class="btn btn-warning">Editar</a>
+                    <a href="/cuenta/delete?id=@item.Id" class="btn btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    Total Disponible real: @ViewBag.Total
+</div>
